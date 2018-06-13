@@ -1,0 +1,13 @@
+
+Auth0 User Profile
+{
+  "sub": "google-oauth2|107578159286079714166",
+  "given_name": "Faith",
+  "family_name": "Moyo",
+  "nickname": "rudomugoni88",
+  "name": "Faith Moyo",
+  "picture": "https://lh3.googleusercontent.com/-D2q2UPkn3wo/AAAAAAAAAAI/AAAAAAAAAGQ/EidLpRZ6NnE/photo.jpg",
+  "gender": "female",
+  "locale": "en",
+  "updated_at": "2018-01-22T08:54:02.389Z"
+}

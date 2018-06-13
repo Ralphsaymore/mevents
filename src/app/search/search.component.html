@@ -1,0 +1,21 @@
+  
+ 
+  <h4>{{searchCount}} </h4>
+  
+  <hr>
+  <div *ngFor = "let service of services" class="col-md-4 col-sm-6">
+     
+    <a (click)="showServiceDetails(service)">
+   <div class="friend-card">
+     <img src="assets/images/services/{{service.image_id}}.jpg" alt="project-banner" class="img-responsive cover" />
+     <div class="card-info">
+
+       <div class="friend-info">
+         <h5 class="pull-right text-green">{{service.purchases}}</h5>
+         <h5 class="profile-link">{{service.title}}</h5>
+         <p> {{service.provider}}</p>
+       </div>
+     </div>
+   </div>
+   </a>
+ </div>

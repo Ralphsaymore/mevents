@@ -1,0 +1,168 @@
+
+   <div class="container">
+
+      <!-- Component Area
+      ================================================= -->
+      <div class="timeline">
+        <div class="timeline-cover" style="background: url(assets/images/services/7.jpg) no-repeat">
+
+          <!--Timeline Menu for Large Screens-->
+            <div class="timeline-nav-bar hidden-sm hidden-xs">
+              <div class="row">
+                <div class="col-md-3">
+                    <!--Defalut Profile card -->
+                   
+                    
+                    <!--User's Profile card -->
+                    <div>
+                        <app-profile></app-profile>
+                      </div>
+                  
+                </div>
+                <div class="col-md-9">
+              
+                  <ul class="list-inline profile-menu" *ngIf="auth.isAuthenticated()">
+                    <li><a routerLink="timeline" class="{{activetab}}" >Timeline</a></li>
+                    <li><a routerLink="events" >Events</a></li>
+                    <li><a routerLink="services" >Services</a></li>                    
+                    <li><a routerLink="explore" >Explore</a></li>   
+                    <li><a [routerLink] = "['/providers/join-providers']">Join As Provider</a></li>
+                 
+                  </ul>
+                  <ul class="list-inline profile-menu" *ngIf="!auth.isAuthenticated()">
+                    <li><a  class="text-danger" href="https://dresoftech.auth0.com/login?client=8dJ03frWr9mKxYFFtifj952FX3PePpnC&protocol=oauth2&redirect_uri=http%3A%2F%2Flocalhost%3A4200&response_type=token%20id_token&scope=openid%20profile&audience=https%3A%2F%2Fdresoftech.auth0.com%2Fuserinfo&nonce=Qti44deTSY6ml~z7D1S4N8_O56e8XIj1&auth0Client=eyJuYW1lIjoiYXV0aDAuanMiLCJ2ZXJzaW9uIjoiOS4wLjIifQ%3D%3D&state=wB5_SZrgKigbvzozcCok8OEzdmnEFE3C" >Login</a></li> 
+                    <li><a routerLink="" class="{{activetab}}" >Learn</a></li>
+                    <li><a routerLink="" >FAQs</a></li>
+                    <li><a [routerLink] = "">Public Gallery</a></li>
+                    <li><a routerLink="explore" >Explore</a></li>                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <!--Timeline Menu for Large Screens End-->
+
+          <!--Timeline Menu for Small Screens-->
+                  <div class="navbar-mobile hidden-lg hidden-md">
+                    <div class="row">
+                      <div class="col-md-3">
+                          <!--Profile card -->
+                          <app-profile></app-profile>
+                          <!--Profile card -->
+                      </div>
+                      <div class="col-md-9">
+                    
+                        <ul class="list-inline profile-menu" *ngIf="auth.isAuthenticated()">
+                          <li><a routerLink="timeline" class="{{activetab}}" >Timeline</a></li>
+                          <li><a routerLink="events" >Events</a></li>
+                          <li><a routerLink="services" >Services</a></li>                    
+                          <li><a routerLink="explore" >Explore</a></li>   
+                          <li><a [routerLink] = "['/providers/join-providers']">Join As Provider</a></li>
+                       
+                        </ul>
+                        <ul class="list-inline profile-menu" *ngIf="!auth.isAuthenticated()">
+                          <li><a  class="text-danger" href="https://dresoftech.auth0.com/login?client=8dJ03frWr9mKxYFFtifj952FX3PePpnC&protocol=oauth2&redirect_uri=http%3A%2F%2Flocalhost%3A4200&response_type=token%20id_token&scope=openid%20profile&audience=https%3A%2F%2Fdresoftech.auth0.com%2Fuserinfo&nonce=Qti44deTSY6ml~z7D1S4N8_O56e8XIj1&auth0Client=eyJuYW1lIjoiYXV0aDAuanMiLCJ2ZXJzaW9uIjoiOS4wLjIifQ%3D%3D&state=wB5_SZrgKigbvzozcCok8OEzdmnEFE3C" >Login</a></li> 
+                          <li><a routerLink="" class="{{activetab}}" >Learn</a></li>
+                          <li><a routerLink="" >FAQs</a></li>
+                          <li><a [routerLink] = "">Public Gallery</a></li>
+                          <li><a routerLink="explore" >Explore</a></li>                    
+                        </ul>
+
+                      </div>
+                    </div>
+                  </div
+          ><!--Timeline Menu for Small Screens End-->
+
+        </div>
+        <div>
+
+   <div id="page-contents">
+      <div class="row">
+          <div class="col-md-3"></div>
+                  <router-outlet>
+
+                  </router-outlet>
+
+        </div>
+
+      </div>
+        </div>
+
+         <div id="page-contents">
+           <div class="row">
+             <div class="col-md-3"></div>
+             <div class="col-md-3"></div>
+             <div class="col-md-6">
+              <div class="post-container" *ngIf="!auth.isAuthenticated()">
+                <img src="assets/images/users/user-11.jpg" alt="user" class="profile-photo-md pull-left" />
+                <div class="post-detail">
+                  <div class="user-info">
+                    <h5><a href="timeline.html" class="profile-link">Dawn Lewis</a> </h5>
+                    <p class="text-muted">Emphasized this about 2 mins ago</p>
+                  </div>
+                  <div class="reaction">
+                    <a class="btn text-green"><i class="fa fa-thumbs-up"></i> 13</a>
+                    <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>                    </div>
+                  <div class="line-divider"></div>
+                  <div class="post-text">
+                    <p>Hello User, Watch the mEvents Getting Started Video, then please Login and start creating a memory with the big Mevents Community<i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
+                  </div>
+                  <div class="line-divider"></div>
+                
+                  
+                </div>
+              </div>
+              
+               
+              <div class="post-content"  *ngIf="auth.isAuthenticated()">
+                  
+                  <!--Post Date-->
+                  <div class="post-date hidden-xs hidden-sm">
+                    <h5>mEvents Support</h5>
+                    <p class="text-grey">17/12/2017</p>
+                  </div><!--Post Date End-->
+  
+                  <div class="post-container">
+                    <img src="assets/images/users/user-2.jpg" alt="user" class="profile-photo-md pull-left" />
+                    <div class="post-detail">
+                      <div class="user-info">
+                        <h5><a href="timeline.html" class="profile-link">Ralph</a></h5>
+                        <p class="text-muted">17 Dec 2017</p>
+                      </div>
+                      <div class="reaction">
+                        <a class="btn text-green"><i class="fa fa-thumbs-up"></i> 49</a>
+                        <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+                      </div>
+                      <div class="line-divider"></div>
+                      <div class="post-text" >
+                        <p>Welcome <span> <b>{{profile.nickname}}</b></span> , it's wonderful to see you on mEvents(Memorable Events) platform. Memorable Events platform
+                          is a professional social media network for intiating events,co-managing events and archiving information about
+                          the events you engaged in. The idea is about creating a MEMORY. We love social networking that have an life-long impact
+                          to you, your workmates, your family and your friends. <br>
+                          Here is how you get started
+                          <ul>
+                            <li>Go to <b>Explore Tab</b> and browse on the providers and services currently on this platform </li>
+                            <li>Go to <b>MyEvents</b> tab, then click on <b>Start Event</b> to intiate a soon coming event</li>
+                            <li>Go to Services and search for services you may like to add to your event</li>
+                            <li>Click on the <b>service banner</b> to get redirected to the service page</li>
+                            <li>Study about the service, view the images and <b>Intro Video</b></li>
+                            <li>If intrested, click on <b>View Provider</b >to learn more about the provider, especially feedback from other
+                            people who once received the same service from the same provider</li>
+                            <li>If interested, click on the service again, to go to that specific service page</li>
+                            <li>Now you can <b>add to your wish list, or book the service </b></li>
+                            <li>To Pay for your services, go to you <b>Bookings</b> and click on the service you want to pay, then click on the 
+                            <b>Process Payment</b> button</li>
+                            <li>For more, follow the <a>Getting Started </a>link</li>
+
+                          </ul> 
+                      </div>
+                      <div class="line-divider"></div>
+                      
+                    </div>
+                  </div>
+                </div>
+           </div>
+
+           </div>
+        </div>
+      </div>
+    </div>

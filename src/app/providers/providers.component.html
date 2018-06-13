@@ -1,0 +1,85 @@
+
+   <div class="container">
+    
+          <!-- Component Area
+          ================================================= -->
+          
+          <div class="timeline">
+            <div class="timeline-cover" style="background: url(assets/images/covers/7.jpg) no-repeat">
+    
+              <!--Timeline Menu for Large Screens-->
+                <div class="timeline-nav-bar hidden-sm hidden-xs">
+                  <div class="row">
+                    <div class="col-md-3">
+                        <!--Profile card -->
+                        <app-profile></app-profile>
+                        <!--Profile card -->
+                    </div>
+                    <div class="col-md-9">
+                  
+                      <ul class="list-inline profile-menu">
+                        <li><a [routerLink] = "['/home/services']">Home</a></li>
+                        <li><a routerLink="all"  class="active" >All Providers</a></li>
+                        <li><a routerLink="local-providers" >Local Providers</a></li>
+                        <li><a routerLink="regional-providers" >Regional Providers</a></li>
+                        <li><a routerLink="join-providers" >Join As Provider</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              <!--Timeline Menu for Large Screens End-->
+    
+              <!--Timeline Menu for Small Screens-->
+                      <div class="navbar-mobile hidden-lg hidden-md">
+                        <div class="row">
+                          <div class="col-md-3">
+                              <!--Profile card -->
+                              <app-profile></app-profile>
+                              <!--Profile card -->
+                          </div>
+                          <div class="col-md-9">
+                        
+                            <ul class="list-inline profile-menu">
+                              <li><a [routerLink] = "['/home/services']">Home</a></li>
+                          <li><a routerLink="all"  class="active" >All Providers</a></li>
+                          <li><a routerLink="local-providers" >Local Providers</a></li>
+                          <li><a routerLink="regional-providers" >Regional Providers</a></li>
+                          <li><a routerLink="join-providers" >Join As Provider</a></li>
+                            </ul>
+    
+                          </div>
+                        </div>
+                      </div
+              ><!--Timeline Menu for Small Screens End-->
+    
+            </div>
+            <div>
+    
+       <div id="page-contents">
+          <div class="row">
+              <div class="col-md-3"></div>
+    
+    
+                      <router-outlet>
+    
+                      </router-outlet>
+    
+    
+            </div>
+    
+          </div>
+            </div>
+    
+             <div id="page-contents">
+               <div class="row">
+                 <div class="col-md-3"></div>
+    
+                 <div class="col-md-7">
+    
+               </div>
+    
+               </div>
+            </div>
+          </div>
+        </div>
+    

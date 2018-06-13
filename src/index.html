@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from thunder-team.com/friend-finder/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Feb 2017 08:47:12 GMT -->
+<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="This is an online social platform for enabling you to book for services in Zimbabwe......" />
+		<meta name="keywords" content="mEvents, Social Network, Social Media, Book Services, Zimbabwe, Events" />
+		<meta name="robots" content="index, follow" />
+		<title>mEvents | For Your Memories</title>
+
+
+    <!-- BOOTSTRAP STYLE SHEET -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT-AWESOME STYLE SHEET FOR BEAUTIFUL ICONS -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+      Stripe.setPublishableKey('pk_test_oi0sKPJYLGjdvOXOM8tE8cMa');
+    </script>
+    
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <link rel="stylesheet" href="assets/tabs/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/tabs/css/style.min.css">
+
+    <link rel="stylesheet" href="assets/bootstrap.min.css" />
+    
+		<link rel="stylesheet" href="assets/style.css" />
+		<link rel="stylesheet" href="assets/ionicons.min.css" />
+    <link rel="stylesheet" href="assets/font-awesome.min.css" />
+    <link rel="stylesheet" href="node_modules/material-components-web/dist/material-components-web.css">
+    <!--Google Webfont-->
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,300italic,400italic,500,500italic,600,600italic,700' rel='stylesheet' type='text/css'>
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="assets/images/fav.png"/>
+
+    <script src="//cdn.auth0.com/js/lock-9.0.min.js"></script>
+    <base href="/">
+	</head>
+	<body>
+
+ <app-root>Loading the mEvents Site...</app-root>
+
+    <!-- Footer
+    ================================================= -->
+
+		<footer id="footer">
+      <div class="container">
+      	<div class="row">
+          <div class="footer-wrapper">
+            <div class="col-md-3 col-sm-3">
+              <a href="#"><img src="assets/images/logo-black.png" alt="" class="footer-logo" /></a>
+              <ul class="list-inline social-icons">
+              	<li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+              	<li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+              	<li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
+              	<li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
+              	<li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-sm-2">
+              <h6>For individuals</h6>
+              <ul class="footer-links">
+                <li><a href="#">Signup</a></li>
+                <li><a href="#">login</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Finder app</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Language settings</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-sm-2">
+              <h6>For businesses</h6>
+              <ul class="footer-links">
+                <li><a href="#">Business signup</a></li>
+                <li><a href="#">Business login</a></li>
+                <li><a href="#">Benefits</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Advertise</a></li>
+                <li><a href="#">Setup</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-sm-2">
+              <h6>About</h6>
+              <ul class="footer-links">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Help</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-3">
+              <h6>Contact Us</h6>
+                <ul class="contact">
+                	<li><i class="icon ion-ios-telephone-outline"></i> (+263) 779 095 453 </li>
+                	<li><i class="icon ion-ios-email-outline"></i>support@mevents.com</li>
+                  <li><i class="icon ion-ios-location-outline"></i>2874 Riverside Road, Mutare, Zimbawe</li>
+                </ul>
+            </div>
+          </div>
+      	</div>
+      </div>
+      <div class="copyright">
+        <p>copyright @mEvents 2017. All rights reserved</p>
+      </div>
+		</footer>
+
+    <!--preloader-->
+    <div id="spinner-wrapper">
+      <div class="spinner"></div>
+    </div>
+    
+    <!-- Firebase Scripts -->
+    <script src="app.js"> </script>
+    <!-- Scripts
+    ================================================= -->
+    <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+		<script src="assets/js/jquery.incremental-counter.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+
+    <!-- TABS SCRIPTS -->
+    <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
+    
+    <script src="assets/tabs/js/src/tabs.js"></script>
+    <script>
+      var myTabs = tabs({
+        el: '#tabs',
+        tabNavigationLinks: '.c-tabs-nav__link',
+        tabContentContainers: '.c-tab'
+      });
+    
+      myTabs.init();
+    </script>
+<script src="assets/tabs/js/lib/githubicons.js"></script>
+<script src="assets/tabs/js/lib/carbonad.js"></script>
+
+
+	</body>
+
+</html>

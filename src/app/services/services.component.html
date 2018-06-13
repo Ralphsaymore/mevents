@@ -1,0 +1,91 @@
+
+
+            <div class="col-md-7">
+              <!-- Friend List
+              ================================================= -->
+              <div class="friend-list">
+                <div class="row">
+                   <!--Search field -->
+                   <div class="row">
+                    <div class="col-md-5"> </div>
+                      <div>
+                         <div id="custom-search-input ">
+                          <div class="input-group col-md-6">
+                              <nav class="navbar navbar-light bg-light justify-content-between">
+                                  
+                                  <form class="form-inline">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                  </form>
+                                </nav>
+                             </div>
+                        </div>
+                        
+                   </div>
+                   
+               </div>
+               <br/><br/>
+
+             
+                <!-----Searched Services  ----------------------------- -->
+               <div *ngIf ="isSearched==1">
+                <hr>
+            <h5>{{search_count}} <span class="text-danger">{{searchtext}}</span> </h5>
+           <div *ngFor = "let service of searchedservices" class="col-md-6 col-sm-6">
+                 <a (click)="showServiceDetails(service)">
+                <div class="friend-card">
+                  <img src="{{service.image1_url}}" alt="service-banner" class="img-responsive cover" />
+                  <div class="card-info">
+
+                    <div class="friend-info">
+                      <h5 class="pull-right text-green">{{service.purchases}}</h5>
+                      <h5 class="profile-link">{{service.title}}</h5>
+                      <p> {{service.provider}}</p>
+                    </div>
+                  </div>
+                </div>
+                </a>
+              </div>
+            </div>
+          <br/><br/>
+              
+                  <!-----All Services  ----------------------------- -->
+                  
+                
+                <div>
+                    <hr>
+                <h4 class="text-success">{{services_count}} </h4>
+                <hr>
+               <div *ngFor = "let service of services | async" class="col-md-3 col-sm-3">
+                     <a>
+                    <div class="friend-card">
+                        <p><a [routerLink]="['/service', service.service_id]">
+                          {{ service.title }}</a></p>
+                      <img src="{{service.image1_url}}" alt="service-banner" class="img-responsive cover" />
+                      <div class="card-info">
+
+                        <div class="friend-info">
+                          <h6 class="pull-right text-green">{{service.purchases}}</h6>
+                          <p> {{service.phone_1}}</p>
+                          
+
+                          
+                        </div>
+                      </div>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+            
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 static">
+                <button class="btn btn-primary" type="button">
+                    <span class="">List All</span>
+                  </button>
+              
+
+          </div>
+         

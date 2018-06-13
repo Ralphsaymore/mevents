@@ -1,0 +1,83 @@
+<div class="col-md-7">
+  <!-- Friend List
+  ================================================= -->
+  <div class="friend-list">
+    <div class="row">
+       <!--Search field -->
+       <div class="row">
+        <div class="col-md-5"> </div>
+          <div>
+             <div id="custom-search-input ">
+              <div class="input-group col-md-6">
+                 <input type="text" class="  search-query form-control" placeholder="Search" (keyup)="onKeyUp($event)" />
+                     <span class="input-group-btn">
+                       <button  class="btn btn-danger" type="button">
+                          <span class=" glyphicon glyphicon-search"></span>
+                        </button>
+                        
+                     </span>
+                 </div>
+            </div>
+            
+       </div>
+       
+   </div>
+   <br/><br/>
+  
+    <!-----Searched Services  ----------------------------- -->
+   <div *ngIf ="isSearched==1">
+    <hr>
+<h5>{{search_count}} <span class="text-danger">{{searchtext}}</span> </h5>
+<div *ngFor = "let provider of searchedproviders" class="col-md-6 col-sm-6">
+     <a (click)="showProviderDetails(provider)">
+    <div class="friend-card">
+      <img src="assets/images/services/{{provider.avatar_id}}.jpg" alt="project-banner" class="img-responsive cover" />
+      <div class="card-info">
+
+        <div class="friend-info">
+          <h5 class="pull-right text-green">{{provider.name}}</h5>
+          <h5 class="profile-link">{{provider.company_name}}</h5>
+          <p> {{provider.cell}}</p>
+        </div>
+      </div>
+    </div>
+    </a>
+  </div>
+</div>
+<br/><br/>
+      <!-----All Services  ----------------------------- -->
+      
+    
+    <div *ngIf ="isSearched==0">
+        <hr>
+    <h4 class="text-success">{{providers_count}} </h4>
+    <hr>
+   <div *ngFor = "let provider of providers" class="col-md-3 col-sm-3">
+         <a (click)="showServiceDetails(service)">
+        <div class="friend-card">
+          <img src="assets/images/services/{{provider.avatar_id}}.jpg" alt="project-banner" class="img-responsive cover" />
+          <div class="card-info">
+
+            <div class="friend-info">
+              <h5 class="pull-right text-green">{{provider.name}}</h5>
+              <h5 class="profile-link">{{provider.company_name}}</h5>
+              <p> {{provider.cell}}</p>
+            </div>
+          </div>
+        </div>
+        </a>
+      </div>
+    </div>
+
+
+    </div>
+  </div>
+</div>
+<div class="col-md-2 static">
+    <button (click) ="GetAllProviders()" class="btn btn-primary" type="button">
+        <span class="">List All</span>
+      </button>
+  
+
+</div>
+

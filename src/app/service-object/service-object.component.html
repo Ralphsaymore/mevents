@@ -1,0 +1,224 @@
+
+
+   <div class="container ">
+    
+    <!-- Component Area
+    ================================================= -->
+    
+    <div class="timeline timeline-nav-bar hidden-sm hidden-xs" >
+      <div class="timeline-cover" style="background: url('') no-repeat">
+       
+        <!--Timeline Menu for Large Screens-->
+          <div >
+            <div class="row">
+              <div class="col-md-3">
+                
+                
+                <div class="profile-info" *ngIf="!auth.isAuthenticated()">
+                  <a href="https://dresoftech.auth0.com/login?client=8dJ03frWr9mKxYFFtifj952FX3PePpnC&protocol=oauth2&redirect_uri=http%3A%2F%2Flocalhost%3A4200&response_type=token%20id_token&scope=openid%20profile&audience=https%3A%2F%2Fdresoftech.auth0.com%2Fuserinfo&nonce=Qti44deTSY6ml~z7D1S4N8_O56e8XIj1&auth0Client=eyJuYW1lIjoiYXV0aDAuanMiLCJ2ZXJzaW9uIjoiOS4wLjIifQ%3D%3D&state=wB5_SZrgKigbvzozcCok8OEzdmnEFE3C"><img src="assets/images/users/default.jpg" alt="" class="img-responsive profile-photo" /></a>
+ 
+                   <div class="profile-card" *ngIf="profile !=null" >
+                     <h3 class="text-white">Statistics</h3>
+                     <div class="text-success"> </div>
+                     <hr>
+                     <div class=" text-white"><i class="fa fa-thumbs-up btn text-green"></i> 850 Service Providers</div>
+                     <div class="text-white"><i class="stat-icon fa fa-briefcase btn text-warning"></i>5262 Services</div>
+                      <div class="text-white"><i class="stat-icon fa fa-users btn text-primary"></i> 358282 Registered Users</div>
+                      <div class="text-white"><i class="stat-icon fa fa-users btn text-primary"></i>786 Public Events</div>
+                      <div class="text-white"><i class="stat-icon fa fa-diamond btn text-primary"></i>1625226 Site Visitors</div>
+                      
+                      <button
+                      class="btn-logout" (click)="auth.login()">
+                        Create Account
+                      </button>	
+                       <br/>
+                   </div><!--profile card ends-->
+                 </div>
+ 
+                 <div class="profile-info" *ngIf="auth.isAuthenticated()">
+                   <img src="{{profile?.picture}}" alt="" class="img-responsive profile-photo" />
+  
+                    <div class="profile-card" *ngIf="profile !=null" >
+                      <h5 class="text-white">{{profile.given_name}}</h5>
+                      <div class="text-success"> {{profile.nickname}}</div>
+                      <hr>
+                      <div class=" text-white"><i class="fa fa-thumbs-up btn text-green"></i> 6 Events</div>
+                      <div class="text-white"><i class="stat-icon fa fa-briefcase btn text-warning"></i> 8 Bookings</div>
+                       <div class="text-white"><i class="stat-icon fa fa-users btn text-primary"></i> 5 Followers</div>
+                       <div class="text-white"><i class="stat-icon fa fa-users btn text-primary"></i> 37 Followings</div>
+                       <div class="text-white"><i class="stat-icon fa fa-diamond btn text-primary"></i> 3 Providers</div>
+                       
+                       <button
+                       class="btn-logout" routerLink="/" (click)="auth.logout()">
+                         Logout
+                       </button>	
+                        <br/>
+                    </div><!--profile card ends-->
+                  </div>
+                  <!--Profile card -->
+              </div>
+              <div class="col-md-9">
+            
+                <ul class="list-inline profile-menu">
+                  <li><a [routerLink] = "['/home/services']">Home</a></li>
+                  <li><a routerLink="all"  class="active" >All Providers</a></li>
+                  <li><a routerLink="local-providers" >Local Providers</a></li>
+                  <li><a routerLink="regional-providers" >Regional Providers</a></li>
+                  <li><a routerLink="join-providers" >Join As Provider</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <!--Timeline Menu for Large Screens End-->
+
+      
+      <div>
+
+ <div id="page-contents">
+    <div class="row">
+        <div class="col-md-3"></div>
+
+       
+        <div >
+           
+          
+          
+        </div>
+      
+      </div>
+
+    </div>
+      </div>
+
+       <div id="page-contents">
+         <div class="row">
+           <div class="col-md-3"></div>
+
+           <div class="col-md-7">
+             <h1>{{ (service |async)?.title }}</h1>
+             <div class="card">
+                <h5 class="card-header">Featured</h5>
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">{{ (service |async)?.description }}.</p>
+                </div>
+              </div>
+              <div align="center" class="embed-responsive embed-responsive-16by9">
+                  <video autoplay loop class="embed-responsive-item">
+                      <source src="https://www.youtube.com/watch?v=sGNDARIu11A" type="video/mp4">
+                  </video>
+              </div>
+        
+             </div>
+
+         </div>
+      </div>
+    </div>
+  </div>
+
+
+   <!--Timeline Menu for Small Screens End===============================================================-->
+   <div class="timeline navbar-mobile hidden-lg hidden-md" >
+       
+    
+          <div >
+            <div class="row">
+              <div class="col-md-3">
+                  <div class="col-md-9">
+                      <br>
+                      <hr>
+                      <div class="input-group col-md-6">
+                          <nav class="navbar navbar-light bg-light justify-content-between">
+                              
+                              <form class="form-inline">
+                                
+                                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Home</button>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Services</button>
+                                <button class="btn btn-primary" type="submit">View Provider</button>
+                                
+                              </form>
+                            </nav>
+                         </div>
+                         <hr>
+                      <div class="card-group">
+                          <div class="card">
+
+                              <h2 class="card-title">{{ (service |async)?.title}}</h2>
+                            <img class="card-img-top" src="{{ (service |async)?.image1_url }}" alt="Card image cap">
+                            <div class="card-body">
+                           </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-body">
+                              
+                              <p class="card-text"></p>
+                              <p class="card-text"><small class="text-muted">Like</small></p>
+                            </div>
+                          </div>
+                          <div class="card">
+                            
+                            <div class="card-body">
+                                <h3 class="card-title">About the Service</h3>
+                              <p class="card-text"> <p class="card-text">{{ (service |async)?.description }}</p>
+                              <p class="card-text"><small class="text-muted"></small>Last updated on {{ (service |async)?.updated_at |date:'yyyy-MM-dd HH:mm a '}}</p>
+                            </div>
+                            <span class="reaction">
+                                <a class="btn btn-primary"><i class="fa fa-book"></i> Book For this Item </a>
+                                <a class="btn btn-success"><i class="fa fa-thumbs-up"></i> Add to Wishlist </a>
+                              </span>
+                          </div>
+                        </div>
+                    </div>
+                
+                 <div class="profile-info ">
+                  
+                
+                   <div class="card" style="width: 18rem;">
+                    
+                    <div class="card-body">
+                      
+                      <div class="card-header">
+                        <h3 class="card-title">Statistics</h3>
+                        </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{ (service |async)?.likes }} Likes</li>
+                        <li class="list-group-item">{{ (service |async)?.bookings }} Bookings</li>
+                        <li class="list-group-item">{{ (service |async)?.puRchases }} Purchases</li>
+                      </ul>                     
+                      
+                    </div>
+                  </div>
+                   <!--profile card ends-->
+                  </div>
+                  <!--Profile card -->
+                  <br>
+                  <hr>
+                  <h3 class="card-title">Service Video</h3>
+                  <div>
+                      <div class="embed-responsive embed-responsive-16by9">
+                          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                        </div>
+                  </div>
+              </div>
+           
+            </div>
+          </div>
+      
+
+      
+      <div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

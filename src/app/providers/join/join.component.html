@@ -1,0 +1,305 @@
+  
+              <div class="col-md-2 static">
+             
+                </div>
+                <div class="col-md-7">
+                  
+              	<div class="row">
+                    <span><button class="btn-primary" (click)="myServices()">My Services</button></span>
+                    <span><button class="btn-primary" (click)="accountSetup()">Account Settings</button></span>
+                    <br>
+                    <p>
+                    <hr>
+                    <br>
+                    
+                    <div *ngIf="tab1==false" id="newservice">
+
+                       <div class="row" *ngIf="isNewService==false">
+                           <div class="col-md-9">
+                              <div *ngFor = "let service of myservices | async" class="col-md-3 col-sm-3">
+                                  <a (click)="showServiceDetails(service)">
+                                 <div class="friend-card" *ngIf="service.sub == sub">
+                                     <p>{{service.title}}</p>
+                                   <img src="{{service.image1_url}}" alt="project-banner" class="img-responsive cover" />
+                                   <div class="card-info">
+             
+                                     <div class="friend-info">
+                                       <h6 class="pull-right text-green">{{service.purchases}}</h6>
+                                       <p> {{service.provider}}</p>
+                                     </div>
+                                   </div>
+                                 </div>
+                                 </a>
+                               </div>
+                           </div>
+                            <div class="col-md-3">
+
+                                    <span>
+                                        Basic: No online payments for your services
+                                      
+                                        <button type="button"  (click)="newService()" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add For Free</button>
+                                  </span>
+                                  <hr>
+                                    <span>
+                                            Pay To be able to let your clients pay online
+                                            <a href='https://www.paynow.co.zw/Payment/Link/?q=c2VhcmNoPXNheW1vcmVyYWxwaCU0MGdtYWlsLmNvbSZhbW91bnQ9MC4wOCZyZWZlcmVuY2U9RFJFOTgzOTMyTDE4Jmw9MQ%3d%3d' target='_blank'><img src='https://www.paynow.co.zw/Content/Buttons/Medium_buttons/button_pay-now_medium.png' style='border:0' />
+                                            <button type="button"  class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add New Service</button></a>
+                                      </span>
+
+                                
+                                </div>
+                    
+                          <div class="col-md-9">
+
+                           
+                          
+                          </div>
+                         
+                       </div>
+            <!-- ######################################### Adding new Service  ############### -   -->
+                       <div *ngIf="isNewService==true">
+                          <form  id="newProvider" name="newProvider" #eventData ="ngForm" (ngSubmit) ="createProviderData.value" >
+                              <h4 class="text-warning">Add A New Service </h4>
+                            <div class="row">
+                                  <div class="col-md-6">
+                                      <input ngModel type = "text" class = "form-control" name="title" [(ngModel)]="title"  placeholder="Service Title">
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                     <textarea class = "form-control" name="description" [(ngModel)]="description" cols="3" placeholder=" Service Description" > </textarea>
+                                  </div>
+                              </div>
+                              <hr>
+                               <div class="row">
+                                  <div class="col-md-6">
+                                     <input class = "form-control" name="phone" [(ngModel)]="phone" cols="3" placeholder=" Provider's Cell or Landline" > 
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                    Service Banner:  
+                                  </div>
+                                  
+                              </div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <div *ngIf="currentFileUpload" class="progress" style="width:400px">
+                                          <div class="progress-bar progress-bar-info progress-bar-striped"
+                                            role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                                            aria-valuemin="0" aria-valuemax="100"
+                                            [ngStyle]="{width:progress.percentage+'%'}">
+                                            {{progress.percentage}}%</div>
+                                        </div>
+                                         
+                                        <label class="btn btn-default"> <input type="file"
+                                          (change)="selectFile($event)">
+                                        </label>
+                                   </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                    Please wait for the image to upload first before saving the Service details
+                                  </div>
+                                  
+                                  <div class="col-md-6">
+                                   </div>
+                              </div>
+                              <p>
+                                  <hr>
+                              <input type="submit" value="Save Service"  class="btn-primary" (click)="SaveService()" *ngIf="progress.percentage">
+                              <button class="btn-delete" >Discard Settings</button>
+                              <input type="submit" value="Upload Image"  class="btn-default" (click)="onInsert()" *ngIf="!progress.percentage">
+
+                          </form>
+                       </div>
+                      
+                  </div>
+                      <!-- ######################################### ACCOUNT SETTINGS  ############### -   -->
+                    <div *ngIf="tab1==true" id="settings">
+                        <h3>Account Settings</h3>
+                        <div class="alert alert-warning" *ngIf="saved_details==false">
+                          <form  id="newProvider" name="newProvider" #eventData ="ngForm" (ngSubmit) ="createProviderData.value" >
+                              <h4 class="text-warning">Provider's Personal Details</h4>
+                            <div class="row">
+                                  <div class="col-md-6">
+                                      <input  (keyup)="getName($event)"  ngModel type = "text" class = "form-control" name="name" id="name"  placeholder="FullName">
+                                  </div>
+                              </div>
+                              <div class="alert alert-danger " *ngIf="name==null && national_id !=null">Your Name is Required</div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                     <input  (keyup)="getNationalId($event)" ngModel type = "text" class = "form-control" name="nationa_id" id="national_id"  placeholder=" National ID" > 
+                                  </div>
+                              </div>
+                              <div class="alert alert-danger " *ngIf="title==null && description !=null">Your National ID is Required</div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-md-4">
+                                    Mobile/ Tell:  <input ngModel name="cell" id="cell" type = "text" class = "form-control" placeholder="Mobile Number" >
+                                  </div>
+                                  <div class="col-md-4">
+                                     Twitter Name: <input ngModel type = "text" name="twitter" id="twitter" class = "form-control" placeholder="Twitter Name">
+                                  </div>
+                                  <div class="col-md-4">
+                                    Email <input ngModel type = "email" name="email" id="email" class = "form-control" placeholder="Email">
+                                 </div>
+                              </div>
+                              <p>
+                                  <hr>
+                              <input type="submit" value="Save Settings"  class="btn-primary" (click)="onInsert()">
+                              <button class="btn-delete" (click)="myServices()">Discard Settings</button>
+                          </form>
+                          </div>
+                   <!-- ######################################### MORE DETAILS ABOUT PROVIDERS  ############### -   -->                         <div class="alert alert-warning" *ngIf="saved_details==true">
+                            <h4 class="text-warning">Additional Information about the Provider</h4>
+                            <form id="companyDetails" name="companyDetails" #providerData ="ngForm" (ngSubmit) ="addProviderData(venueData.value)">
+                             
+                            <div class="row">
+                                  <div class="col-md-6">
+                                      <input  (keyup)="getName($event)"  ngModel type = "text" class = "form-control" name="companyName" id="companyName"  placeholder="Trading Name">
+                                  </div>
+                              </div>
+                              <p>
+                              <div class="row">
+                                <div class="col-md-9">
+                                      <textarea  ngModel type = "text" class = "form-control" name="aboutCompany" id="aboutCompany"  placeholder="About Your Operations"></textarea>
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                      Mode of Operation:  
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select ngModel name="companySize" class = "form-control" id="companySize">
+                                            <option value="Harare">Individual</option> 
+                                            <option value="Bulawayo">Partnership</option>
+                                            <option value="Gweru">Company</option>
+                                            <option value="">Non-Profit Organisation</option>
+                                            <option value="">Society</option>
+                                            <option value="">Other</option>
+                                         </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                  <div class="col-md-4">
+                                    Location:  
+                                  </div>
+                                  <div class="col-md-4">
+                                    <select ngModel name="location" class = "form-control" id="location">
+                                      <option value="Harare">Harare</option> 
+                                      <option value="Bulawayo">Bulawayo</option>
+                                      <option value="Gweru">Gweru</option>
+                                      <option value="">Masvingo</option>
+                                      <option value="">Mutare</option>
+                                      <option value="">Kwekwe</option>
+                                      <option value="">Kariba</option>
+                                      <option value="">Chinhoyi</option>
+                                      <option value="">Bindura</option>
+                                      <option value="">Beit Bridge</option>
+                                      <option value="">Marondera</option>
+                                      <option value="">Gwanda</option>
+                                   </select>
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  Radius of Operation:  
+                                </div>
+                                <div class="col-md-4">
+                                    <select ngModel name="radius" class = "form-control" id="radius">
+                                        <option value="Harare">Within 20km</option> 
+                                        <option value="Bulawayo">Within District</option>
+                                        <option value="Gweru">Within Province</option>
+                                        <option value="">Within the Country</option>
+                                        <option value="">Within the Region</option>
+                                     </select>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-4">
+                                  Mobile/ Tell:  <input ngModel name="cell" id="cell" type = "text" class = "form-control" placeholder="Mobile Number" >
+                                </div>
+                                <div class="col-md-4">
+                                   Twitter Name: <input ngModel type = "text" name="twitter" id="twitter" class = "form-control" placeholder="Twitter Name">
+                                </div>
+                                <div class="col-md-4">
+                                  Email <input ngModel type = "email" name="email" id="email" class = "form-control" placeholder="Email">
+                               </div>
+                            </div>
+                              <p>
+                                  <hr>
+                              <input type="submit" value="Add Providers Details"  class="btn-primary" (click)="onInsert()">
+                              <button class="btn-delete" (click)="myServices()">Discard Details</button>
+                              <br>
+                              <a (click)="moreDetails()"><img src="assets/images/point.png" alt="Add More Details" /> (Optional)</a>
+                          </form>
+                           </div> 
+                         
+                  <!-- ######################################### PROVIDER WORKING DAYS, HOURS  ############### -   -->
+                          <div *ngIf="more_details==true">
+                            <h4 class="text-warning">Time of Work</h4>
+                          <hr>                 
+                          <div class="row">
+                            <div class="col-md-4">
+                              Our Week Starts on:  
+                              <select ngModel name="radius" class = "form-control" id="radius">
+                                  <option value="Monday">Monday</option> 
+                                  <option value="Tuesday">Tuesday</option>
+                                  <option value="Wednesday">Wednesday</option>
+                                  <option value="Thursday">Thursday</option>
+                                  <option value="Friday">Friday</option>
+                                  <option value="Saturday">Saturday</option>
+                                  <option value="Sunday">Sunday</option>
+                               </select>                            </div>
+                            
+                            <div class="col-md-4">
+                                Our Week Ends on:  
+                                <select ngModel name="start_day" class = "form-control" id="radius">
+                                    <option value="Monday">Monday</option> 
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                    <option value="Sunday">Sunday</option>
+                                 </select> 
+                               </div>
+                             </div>
+                             <hr>                 
+                             <div class="row">
+                               <div class="col-md-4">
+                                 Our Day Starts at:  <input ngModel name="start_date" id="start_date" type = "text" class = "form-control" placeholder="Name" >
+                               </div>
+                               
+                               <div class="col-md-4">
+                                    .  <input ngModel name="start_date" id="start_date" type = "text" class = "form-control" placeholder="Phone Number" >
+                                  </div>
+                                </div>
+                                <br>
+                                <div *ngIf="more_details==1">
+                                        <p>
+                                    <a (click)="minimizeDetails()"><img src="assets/images/minimize.png" alt="Minimize Details" /></a>
+                                  </div>
+                                  <p>
+                                <hr>
+                                <input type="submit" value="Add Event Organisers"  class="btn-primary" (click)="onInsert()">
+                                <button class="btn-delete" (click)="myServices()">Discard Details</button>
+                                <br>
+                          </div>
+                    </div>
+                     
+                </div>
+                </div>
+               
+             
